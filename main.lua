@@ -1,5 +1,5 @@
-local shakeAmount = 0 
-local shakeTimer = 0  
+local shakeAmount = 0
+local shakeTimer = 0
 
 Starfield = require("src/Starfield")
 local DotPhysics = require("src/DotPhysics")
@@ -34,7 +34,7 @@ function love.load()
     font = love.graphics.newFont("Fonts/Junicode-Bold.ttf", 55)
     love.graphics.setFont(font)
 
-    image = love.graphics.newImage("sprites/stars.png")
+    image = love.graphics.newImage("Sprites/stars.png")
     grid = anim8.newGrid(90, 90, image:getWidth(), image:getHeight())
 
     Starfield.load()
@@ -81,7 +81,6 @@ function love.update(dt)
 end
 
 function love.draw()
-
     Starfield.draw()
     MainCircle.draw(circCenterX, circCenterY)
     DotPhysics.draw()
@@ -96,7 +95,7 @@ function love.draw()
     if startScreen then
         love.graphics.printf("1 CLICK = 1 SOL", offsetX, sH / 2 - 97 + offsetY, sW, "center")
     else
-        displayedScore = math.floor(score) 
+        displayedScore = math.floor(score)
         love.graphics.printf("SOLS: " .. displayedScore, offsetX, 940 + offsetY, sW, "center")
     end
 

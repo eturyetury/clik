@@ -1,5 +1,5 @@
-local shakeAmount = 0
-local shakeTimer = 0
+local shakeAmount = 0 
+local shakeTimer = 0  
 
 Starfield = require("src/Starfield")
 local DotPhysics = require("src/DotPhysics")
@@ -25,6 +25,8 @@ function love.load()
     solsPerSecond = 0
     dotsToAdd = 1
     textTimer = 0
+
+    poop = big
 
     -- Sounds
 
@@ -81,6 +83,7 @@ function love.update(dt)
 end
 
 function love.draw()
+
     Starfield.draw()
     MainCircle.draw(circCenterX, circCenterY)
     DotPhysics.draw()
@@ -95,7 +98,7 @@ function love.draw()
     if startScreen then
         love.graphics.printf("1 CLICK = 1 SOL", offsetX, sH / 2 - 97 + offsetY, sW, "center")
     else
-        displayedScore = math.floor(score)
+        displayedScore = math.floor(score) 
         love.graphics.printf("SOLS: " .. displayedScore, offsetX, 940 + offsetY, sW, "center")
     end
 

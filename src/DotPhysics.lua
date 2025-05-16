@@ -50,7 +50,7 @@ end
 
 function DotPhysics.draw()
     for _, dot in ipairs(dots) do
-        love.graphics.setColor(1, 0.15, 1)
+        love.graphics.setColor(0, 0, 0)
         love.graphics.circle("fill", dot.dotX, dot.dotY, 1.75)
     end
 end

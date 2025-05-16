@@ -1,5 +1,5 @@
-local shakeAmount = 0 
-local shakeTimer = 0  
+local shakeAmount = 0
+local shakeTimer = 0
 
 Starfield = require("src/Starfield")
 local DotPhysics = require("src/DotPhysics")
@@ -23,10 +23,8 @@ function love.load()
     unlockedMenuAmount = 50
     score = 0
     solsPerSecond = 0
-    dotsToAdd = 1
+    dotsToAdd = 999
     textTimer = 0
-
-    poop = big
 
     -- Sounds
 
@@ -83,22 +81,22 @@ function love.update(dt)
 end
 
 function love.draw()
-
-    Starfield.draw()
+    love.graphics.setColor(0.93, 0.93, 0.93)
+    love.graphics.rectangle("fill", 0, 0, sW, sH)
+    --[[
     MainCircle.draw(circCenterX, circCenterY)
+    Starfield.draw()
+    ]]
     DotPhysics.draw()
 
     local offsetX = math.cos(textTimer * 1.2) * 4
     local offsetY = math.sin(textTimer * 1.2) * 4
 
-    love.graphics.setColor(0, 0, 0, 0.65)
-    love.graphics.rectangle("fill", sW / 2 - 110 + offsetX, sH / 2 + 385 + offsetY, 220, 60, 20, 20)
-
-    love.graphics.setColor(1, 0.15, 1)
+    love.graphics.setColor(0, 0, 0)
     if startScreen then
         love.graphics.printf("1 CLICK = 1 SOL", offsetX, sH / 2 - 97 + offsetY, sW, "center")
     else
-        displayedScore = math.floor(score) 
+        displayedScore = math.floor(score)
         love.graphics.printf("SOLS: " .. displayedScore, offsetX, 940 + offsetY, sW, "center")
     end
 
